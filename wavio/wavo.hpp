@@ -4,7 +4,6 @@
 
 #pragma once
 #include <iostream>
-#include <string>
 #include <cstdlib>
 #include "wav.hpp"
 
@@ -25,7 +24,6 @@ public:
   
 private:
 	wav::Signal signal;
-	std::string filename;
 	FILE *fp;
 	template<typename T> void write_(int);
 	int signal_length;
@@ -33,10 +31,9 @@ private:
 };
 
 wavo::wavo(const char *fn, int ch, int buffer_size){
-  filename = fn;
-  fp = fopen(filename.c_str(), "wb");
+  fp = fopen(fn, "wb");
   if( !fp ){
-    std::cerr << "cannot open " << filename << "!" <<std::endl;
+    std::cerr << "cannot open " << fn << "!" <<std::endl;
     exit(1);
   }
   signal_length = 0;

@@ -6,7 +6,6 @@
 #include <iostream>
 #include <cstdlib>
 #include <cstdio>
-#include <string>
 
 #include "wav.hpp"
 
@@ -36,17 +35,15 @@ class wavi{
 
  private:
 	wav::Signal signal;
-	std::string filename;
 	FILE *fp;
 	int current_seek;
 	template<typename T> void read_(int n);
 };
 
 wavi::wavi(const char *fn, int buffer_size){
-	filename = fn;
-	fp = fopen(filename.c_str(), "rb");
+	fp = fopen(fn, "rb");
 	if( !fp ){
-		std::cerr << "cannot open " << filename << "!" <<std::endl;
+		std::cerr << "cannot open " << fn << "!" <<std::endl;
 		exit(1);
 	}
 	if ( fread(&header, sizeof(header), 1, fp) != 1 ) {std::cerr << "error" << std::endl; exit(1);}
