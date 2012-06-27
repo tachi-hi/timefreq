@@ -8,19 +8,24 @@ A toolbox for time-frequency analysis of audio signals.
 
 Current Contents
 ----------------
+#### English
 + Audio I/O (.wav format)
 + FFT
++ Constant Q Gabor Transform  
 
+#### Japanese
 + オーディオ入出力 (.wav形式)
 + 高速フーリエ変換
-
-Future Plan
++ 定Qガボール変換  
+ 
+Todo
 ------------
 I will add some more algorithms and samples soon.
 
 
 Copyright & License
 -------------------
+#### English
 Copyright (C) 2012 Hideyuki TACHIBANA (tachi-hi @ GitHub)  
 All Rights Reserved  
 
@@ -33,6 +38,7 @@ Redistribution and use in source and binary forms, with or without modification,
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
+#### Japanese
 Copyright (C) 2012 Hideyuki TACHIBANA (tachi-hi @ GitHub)  
 All Rights Reserved  
 
