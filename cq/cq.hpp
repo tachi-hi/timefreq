@@ -137,7 +137,10 @@ void CQ::filter_init(){
 	integral_end.resize(ch);
 
 	// initialize filter
-	filter.alloc((int)(2 * N_SIGMA_freq_domain * HF() / Q * (frame_length >> (n_split - 1) ) / sampling_rate) + 2, ch);
+	filter.alloc(
+		(int)(2 * N_SIGMA_freq_domain * HF() / Q * (frame_length >> (n_split - 1) ) / sampling_rate) + 2,
+		ch
+	);
 
 	for(int q = 0; q < n_split; q++)
 	{
@@ -191,7 +194,7 @@ void CQ::filter_init(){
 					/ sampling_rate * (frame_length >> (split_unit * q) );
 				filter[h][i] = std::complex<double>( cos(angle), sin(angle) );
 
-			 // amplitude: Gaussian
+				// amplitude: Gaussian
 				double filter_of_this_bin =
 					exp( - (i_freq - cf) * (i_freq - cf) / ( 2.0 * bw * bw )) 
 					/ (sqrt(2.0 * M_PI) * bw);
@@ -229,7 +232,7 @@ void CQ::exec(const double *input, T *output){
 			output[h] =
 				typeid(T) == typeid(double)
 				? abs(tmp)
-				: *reinterpret_cast<double*>(&tmp); // cheat the compiler
+				: *reinterpret_cast<T*>(&tmp); // cheat the compiler
 		}
 	}
 }
