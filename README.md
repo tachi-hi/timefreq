@@ -13,21 +13,33 @@ Current Contents
 + FFT
 + Constant Q Gabor Transform
 + Data Structure
-++ 2D array
-+++ FIFO Sliding Block  
+    + 2D array
+        + FIFO Sliding Block  
 
 #### Japanese
 + オーディオ入出力 (.wav形式)
 + 高速フーリエ変換
-+ 定Qガボール変換  
++ 定Qガボール変換
 + データ構造
-++ 2次元配列
-+++ FIFO スライディングブロック  
+    + 2次元配列
+        + FIFO スライディングブロック  
+
 
 Todo
 ------------
 I will add some more algorithms and samples soon.
 
++ Short-time Fourier Transform (STFT)
++ Inverse STFT
++ Chroma vector
++ Non-negative Matrix Factorization
++ MIDI I/O  
+
++ 短時間フーリエ変換
++ 逆短時間フーリエ変換
++ クロマベクトル
++ 非負値行列分解
++ MIDI 入出力
 
 Copyright & License
 -------------------
