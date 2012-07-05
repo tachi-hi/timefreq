@@ -11,13 +11,19 @@ Current Contents
 #### English
 + Audio I/O (.wav format)
 + FFT
-+ Constant Q Gabor Transform  
++ Constant Q Gabor Transform
++ Data Structure
+++ 2D array
++++ FIFO Sliding Block  
 
 #### Japanese
 + オーディオ入出力 (.wav形式)
 + 高速フーリエ変換
 + 定Qガボール変換  
- 
++ データ構造
+++ 2次元配列
++++ FIFO スライディングブロック  
+
 Todo
 ------------
 I will add some more algorithms and samples soon.
