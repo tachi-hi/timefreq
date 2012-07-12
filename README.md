@@ -27,6 +27,7 @@ Current Contents
 
 Todo
 ------------
+#### English
 I will add some more algorithms and samples soon.
 
 + Short-time Fourier Transform (STFT)
@@ -34,12 +35,17 @@ I will add some more algorithms and samples soon.
 + Chroma vector
 + Non-negative Matrix Factorization
 + MIDI I/O  
++ Buffer
+
+#### Japanese
+近日中に追加予定のライブラリ
 
 + 短時間フーリエ変換
 + 逆短時間フーリエ変換
 + クロマベクトル
 + 非負値行列分解
 + MIDI 入出力
++ バッファ
 
 Copyright & License
 -------------------
