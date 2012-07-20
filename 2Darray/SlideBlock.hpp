@@ -40,7 +40,7 @@ Usage:
 #include"TwoDimArray.hpp"
 
 template<typename T>
-class FIFO_SlideBlock: public TwoDimArray<T>{
+class FIFO_SlideBlock: virtual public TwoDimArray<T>{
  public:
 
 	FIFO_SlideBlock (int Freq_max, int Time_max);
