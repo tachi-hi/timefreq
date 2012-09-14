@@ -16,7 +16,7 @@ TESTSRC = $(shell ls ./*/*_test.cpp)
 TESTOBJS = $(shell ls ./*/*_test.cpp | sed "s/\.cpp/\.o/g")
 TESTEXE = $(shell ls ./*/*_test.cpp | sed "s/\.cpp//g")
 
-OBJS =  ./fft/fft.o ./cq/cq.o
+OBJS =  ./fft/fft.o ./cq/cq.o ./snr/snr.o
 LIB = libtimefreq.a
 
 RM = rm -f

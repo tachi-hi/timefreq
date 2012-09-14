@@ -15,6 +15,7 @@ Current Contents
 + Data Structure
     + 2D array
         + FIFO Sliding Block  
++ SNR
 
 #### Japanese
 + オーディオ入出力 (.wav形式)
@@ -23,6 +24,7 @@ Current Contents
 + データ構造
     + 2次元配列
         + FIFO スライディングブロック  
++ SN比
 
 
 Todo
