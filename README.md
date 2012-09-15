@@ -15,7 +15,9 @@ Current Contents
 + Data Structure
     + 2D array
         + FIFO Sliding Block  
-+ SNR
++ Evaluation Tools
+    + SDR, SIR
+    + Spectral Distance
 
 #### Japanese
 + オーディオ入出力 (.wav形式)
@@ -24,8 +26,9 @@ Current Contents
 + データ構造
     + 2次元配列
         + FIFO スライディングブロック  
-+ SN比
-
++ 評価ツール
+    + SDR, SIR
+    + スペクトル距離
 
 Todo
 ------------
@@ -36,7 +39,7 @@ I will add some more algorithms and samples soon.
 + Inverse STFT
 + Chroma vector
 + Non-negative Matrix Factorization
-+ MIDI I/O  
++ MIDI I/O
 + Buffer
 
 #### Japanese
