@@ -30,27 +30,19 @@ Current Contents
     + SDR, SIR
     + スペクトル距離
 
+Note
+------------
+These programs basically accept 16-bit PCM (.wav) audio signals.
+Please convert the signal using `sox` as follows
+      
+      sox original.wav -b 16 converted.wav
+      
+before using these programs.
+
 Todo
 ------------
-#### English
-I will add some more algorithms and samples soon.
 
-+ Short-time Fourier Transform (STFT)
-+ Inverse STFT
-+ Chroma vector
-+ Non-negative Matrix Factorization
-+ MIDI I/O
-+ Buffer
 
-#### Japanese
-近日中に追加予定のライブラリ
-
-+ 短時間フーリエ変換
-+ 逆短時間フーリエ変換
-+ クロマベクトル
-+ 非負値行列分解
-+ MIDI 入出力
-+ バッファ
 
 Copyright & License
 -------------------
