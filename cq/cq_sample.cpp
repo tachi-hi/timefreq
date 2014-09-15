@@ -25,6 +25,11 @@ int main(int argc, char **argv){
 	short n_nyq = 72; //6 octaves
 	short resol = 5;
 	double Q = 45;
+	enum{
+		FORMAT_gnuplot,
+		FORMAT_matrix
+	} format_flag = FORMAT_gnuplot;
+
 	/*********************************************************************************************************/
 	while (1) {
 //		int this_option_optind = optind ? optind : 1;
@@ -39,6 +44,7 @@ int main(int argc, char **argv){
 			{"resol",   1,      0,   'r'},
 			{"sigma",   1,      0,   'g'},
 			{"Q",       1,      0,   'Q'},
+			{"Format",  1,      0,   'F'},
 			{"a",       1,      0,   'a'},
 			{0,         0,      0,    0}
 		};
@@ -57,6 +63,7 @@ int main(int argc, char **argv){
 			cerr << "  --nnyq\t number of frequency bands of the spectrogram" << endl;
 			cerr << "  --resol\t frequency resolugion" << endl;
 			cerr << "  --Q\t Q" << endl;
+			cerr << "  --Format\t output format; gnuplot (default), matrix." << endl;
 			cerr << "(c) 2012 Hideyuki Tachibana, tachi-hi @ github" << endl;
 			exit(1);
 		}
@@ -67,6 +74,17 @@ int main(int argc, char **argv){
 		case'n':{n_nyq = atoi(optarg); break;}
 		case'r':{resol = atoi(optarg); break;}
 		case'Q':{Q = atof(optarg); break;}
+		case'F':{
+			string tmp (optarg);
+			if (tmp == "matrix"){
+				format_flag = FORMAT_matrix;
+			}else if (tmp == "gnuplot"){
+				format_flag = FORMAT_gnuplot;
+			}else{
+				format_flag = FORMAT_gnuplot;							
+			}
+			break;
+		}
 		default:
 			printf("Error: getopt returned character code 0%o \n", c);
 		}
@@ -122,9 +140,21 @@ int main(int argc, char **argv){
 			fprintf(stderr, "%f[s]\n", (double)count * frame_shift / sampling_rate);
 
 		// save
-		for(int i = 0; i < n_nyq; ++i)
+		if(format_flag == FORMAT_gnuplot)
 		{
-			fprintf(file, "%f %f %e\n", (double)count * frame_shift / sampling_rate, start_freq * pow(2., static_cast<double>(i)/12./resol), spec[i]);
+			for(int i = 0; i < n_nyq; ++i)
+			{
+				double tmp1 = (double)count * frame_shift / sampling_rate;
+				double tmp2 = start_freq * pow(2., static_cast<double>(i)/12./resol);
+				fprintf(file, "%f %f %e\n", tmp1, tmp2, spec[i]);
+			}
+		}
+		else if (format_flag == FORMAT_matrix)
+		{
+			for(int i = 0; i < n_nyq; ++i)
+			{
+				fprintf(file, "%f%s", spec[i], i < n_nyq - 1 ? " " : "");
+			}
 		}
 		fprintf(file, "\n");
 	}
