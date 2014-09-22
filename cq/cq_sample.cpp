@@ -27,7 +27,8 @@ int main(int argc, char **argv){
 	double Q = 45;
 	enum{
 		FORMAT_gnuplot,
-		FORMAT_matrix
+		FORMAT_matrix,
+		FORMAT_csv,
 	} format_flag = FORMAT_gnuplot;
 
 	/*********************************************************************************************************/
@@ -63,7 +64,7 @@ int main(int argc, char **argv){
 			cerr << "  --nnyq\t number of frequency bands of the spectrogram" << endl;
 			cerr << "  --resol\t frequency resolugion" << endl;
 			cerr << "  --Q\t Q" << endl;
-			cerr << "  --Format\t output format; gnuplot (default), matrix." << endl;
+			cerr << "  --Format\t output format; gnuplot (default), matrix, csv." << endl;
 			cerr << "(c) 2012 Hideyuki Tachibana, tachi-hi @ github" << endl;
 			exit(1);
 		}
@@ -80,6 +81,8 @@ int main(int argc, char **argv){
 				format_flag = FORMAT_matrix;
 			}else if (tmp == "gnuplot"){
 				format_flag = FORMAT_gnuplot;
+			}else if (tmp == "csv"){
+				format_flag = FORMAT_csv;
 			}else{
 				format_flag = FORMAT_gnuplot;							
 			}
@@ -154,6 +157,13 @@ int main(int argc, char **argv){
 			for(int i = 0; i < n_nyq; ++i)
 			{
 				fprintf(file, "%f%s", spec[i], i < n_nyq - 1 ? " " : "");
+			}
+		}
+		else if (format_flag == FORMAT_csv)
+		{
+			for(int i = 0; i < n_nyq; ++i)
+			{
+				fprintf(file, "%f%s", spec[i], i < n_nyq - 1 ? "," : "");
 			}
 		}
 		fprintf(file, "\n");
