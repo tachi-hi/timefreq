@@ -9,7 +9,7 @@ A toolbox for time-frequency analysis of audio signals.
 Current Contents
 ----------------
 #### English
-+ Audio I/O (.wav format)
++ Audio I/O (.wav format) -> `libsndfile` is better
 + FFT
 + Constant Q Gabor Transform
 + Data Structure
@@ -20,7 +20,7 @@ Current Contents
     + Spectral Distance
 
 #### Japanese
-+ オーディオ入出力 (.wav形式)
++ オーディオ入出力 (.wav形式) -> `libsndfile`の使用を推奨
 + 高速フーリエ変換
 + 定Qガボール変換
 + データ構造
