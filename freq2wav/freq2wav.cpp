@@ -38,7 +38,7 @@ int main(int argc, char **argv){
       cerr << "  --srate\t sampling rate" << endl;
       cerr << "  --o\t output file name " << endl;
       cerr << "(c) Hideyuki Tachibana 2009." << endl;
-      cerr << "tachibana@hil.t.u-tokyo.ac.jp" << endl;
+      cerr << "https://github.com/tachi-hi" << endl;
       cerr << "=========================" << endl;
       cerr << " usage: cat yourfile.dat | freq2wav" << endl;
       cerr << "=========================" << endl;
