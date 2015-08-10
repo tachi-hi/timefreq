@@ -18,6 +18,7 @@ Current Contents
 + Evaluation Tools
     + SDR, SIR
     + Spectral Distance
++ Python interface
 
 #### Japanese
 + オーディオ入出力 (.wav形式) -> `libsndfile`の使用を推奨
