@@ -84,14 +84,17 @@ stft_glue(const boost::numeric::ublas::vector<double> &x,
 
 
 // ----------------------------------------------------------------------------
-BOOST_PYTHON_MODULE( myTest ){
+BOOST_PYTHON_MODULE( STFT ){
 	numeric::array::set_module_and_type( "numpy", "ndarray" );
 
+/*
     class_<STFT>("stft")
 //        .def("setparams",&STFT::STFT) // it is not needed to define the constructor explicitly?
         .def("exec",&STFT::exec)
         .def("n_frame",&STFT::get_n_frame)
         .def("n_freq",&STFT::get_n_freq);
+*/
 
+	boost::python::def( "stft", &stft_glue );
 	import_array();
 }

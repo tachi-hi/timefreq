@@ -8,9 +8,7 @@
 //#include "waviostream.hpp"
 
 // -------------------------------------------------------------------------------------------------
-double sin_window (int i, int len){
-	return 0.5 * (1 - cos(static_cast<double>(i) / len * 2. * M_PI));
-}
+double sin_window (int i, int len);
 
 class STFT{
 public:

@@ -1,5 +1,5 @@
 
-#include "STFT.h"
+#include "STFT.hpp"
 #include<complex>
 
 void STFT::exec(
@@ -11,7 +11,7 @@ void STFT::exec(
 //	input->read(length - shift);
 
 	for(int t = 0; t < n_frame; ++t){
-		shortTimeFFT(input[n_freq * t], (*abs_spec_output)[t], (*phase_spec_output)[t]);
+		shortTimeFFT(&(input[n_freq * t]), (*abs_spec_output)[t], (*phase_spec_output)[t]);
 	}
 }
 
@@ -33,4 +33,8 @@ void STFT::shortTimeFFT(
 		abs_spec_short[f] = abs(cmp_spec);
 		phase_spec_short[f] = cmp_spec / (abs_spec_short[f] + 1e-100);
 	}
+}
+
+double sin_window (int i, int len){
+	return 0.5 * (1 - cos(static_cast<double>(i) / len * 2. * M_PI));
 }

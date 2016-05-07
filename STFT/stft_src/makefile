@@ -4,7 +4,7 @@
 
 
 CXX = g++
-CXXFLAGS = -O3 -Wall  -pg -g
+CXXFLAGS = -O3 -Wall # -pg -g
 #-fopenmp -std=c++0x
 LDLIBS = -lm -L. -lfftw3
 
@@ -12,19 +12,21 @@ SAMPLESRC = $(shell ls ./*_sample.cpp)
 SAMPLEOBJS = $(shell ls ./*_sample.cpp | sed "s/\.cpp/\.o/g")
 SAMPLEEXE = $(shell ls ./*_sample.cpp | sed "s/\.cpp//g")
 
+OBJS=STFT.o invSTFT.o
+
 RM = rm -f
 
-all: $(SAMPLEEXE)
+all: $(OBJS) $(SAMPLEEXE)
 
 $(SAMPLEEXE): $(SAMPLEOBJS)
 
 %: %.o $(LIB)
-	$(CXX) -o $@ $< $(LDLIBS)
+	$(CXX) -o $@ $< $(OBJS) $(LDLIBS)
 
-$.o: %.cpp
-	$(CXX) $(CXXFLAGS) $(DEBUG) -o $@ -c $<
+%.o: %.cpp
+	$(CXX) -std=c++0x $(CXXFLAGS) -DPIC -shared -fPIC -c $<
 
 # clean #
 .phony: clean
 clean:
-	$(RM) $(SAMPLEOBJS) $(SAMPLEEXE) 
+	$(RM) $(SAMPLEOBJS) $(SAMPLEEXE) $(OBJS)
