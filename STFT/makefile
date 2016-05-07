@@ -3,14 +3,16 @@ PyUblas = -I/usr/local/lib/python2.7/dist-packages/pyublas/include
 
 
 
-all: subdir python.o
-	g++ --std=c++0x -Wall -o stft \
+all: STFT.so
+
+STFT.so: subdir python.o
+	g++ --std=c++0x -Wall -o $@ \
 		-funroll-loops \
 		${PythonLIBS} \
 		${PyUblas} \
 		-DPIC -shared -fPIC \
 		python.o stft_src/STFT.o \
-		-lboost_python
+		-lboost_python -lfftw3
 
 subdir:
 	make --dir=stft_src

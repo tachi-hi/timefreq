@@ -1,4 +1,4 @@
 *~
 *_sample
 *.o
-stft
+*.so
