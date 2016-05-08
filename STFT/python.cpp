@@ -14,35 +14,6 @@ using namespace boost::numeric;
 using namespace pyublas;
 
 
-class STFT_glue : public STFT{
-    STFT_glue(){};
-    STFT_glue(const STFT_glue& _){};
-    STFT_glue(int length, int shift, int n_frame) : STFT(length, shift, n_frame){};
-
-    boost::python::tuple
-    eval(double* x){
-
-        //allocation
-        twoDimArray<double> abs_spec(this->n_frame, this->n_freq);
-        twoDimArray<std::complex<double> > phase_spec(this->n_frame, this->n_freq);
-
-        // exec stft
-        this->exec(x, &abs_spec, &phase_spec);
-        boost::numeric::ublas::matrix<double> abs_spec_boost(this->n_frame, this->n_freq);
-        boost::numeric::ublas::matrix<double> phase_spec_boost(this->n_frame, this->n_freq);
-
-        for(int i = 0; i != this->n_frame; ++i){
-            for(int j = 0; j != this->n_freq; ++j){
-                abs_spec_boost(i,j) = abs_spec[i][j];
-                phase_spec_boost(i,j) = std::arg(phase_spec[i][j]);
-            }
-        }
-
-        auto ret = boost::python::make_tuple(abs_spec_boost, phase_spec_boost);
-        return ret;
-    }
-};
-
 
 boost::python::tuple
 stft_glue(const boost::numeric::ublas::vector<double> &x,
