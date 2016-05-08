@@ -1,6 +1,8 @@
-PythonLIBS = `pkg-config --cflags --libs python2`
-PyUblas = -I/usr/local/lib/python2.7/dist-packages/pyublas/include
+#PythonLIBS = `pkg-config --cflags --libs python2`
+#PyUblas = -I/usr/local/lib/python2.7/dist-packages/pyublas/include
 
+PythonLIBS = `pkg-config --cflags --libs python3`
+PyUblas = -I~/.local/lib/python3.4/site-packages/pyublas/include
 
 
 all: STFT.so
