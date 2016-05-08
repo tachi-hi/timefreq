@@ -12,10 +12,6 @@ double sin_window (int i, int len);
 
 class STFT{
 public:
-	// default constructor : do nothing
-	STFT(const STFT& _){};
-	STFT(void){};
-
 	STFT(int length, int shift, int n_frame, double(*winfunc)(int, int) = sin_window):
 		length( length ),
 		shift( shift ),
