@@ -4,13 +4,13 @@ import math
 import STFT
 import matplotlib.pyplot as plt
 
-t = np.asarray(range(160000)) / 16000.
+t = np.asarray(range(16000 * 180)) / 16000.
 x = np.sin(1650. * t * 2. * np.pi) + np.sin(2200. * t * 2. * np.pi) / 2. + np.sin(4400. * t * 2. * np.pi) / 5.
 print(x)
-plt.plot(t, x)
-plt.show()
+#plt.plot(t, x)
+#plt.show()
 
-y, p = STFT.stft(x, 512, 256)
+y, p = STFT.stft(x, 1024, 512)
 print(y)
 plt.imshow(y, interpolation='nearest', aspect='auto')
 plt.show()
