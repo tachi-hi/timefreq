@@ -1,0 +1,3 @@
+[submodule "sampleSounds"]
+	path = sampleSounds
+	url = git://github.com/tachi-hi/sampleSounds
