@@ -34,9 +34,10 @@ def showSTFT(x, samp_rate=16000):
 
     fig = plt.figure()  # create a figure object
     ax = fig.add_subplot(1, 1, 1)  # create an axes object in the figure
-    ax.imshow(y.T ** 0.6, aspect='auto', extent=ext, origin="lower", cmap="hot")
+#    ax.imshow(y.T ** 0.6, aspect='auto', extent=ext, origin="lower", cmap="hot")
+    ax.imshow(y.T ** 0.2, aspect='auto', extent=ext, origin="lower", cmap="hot")
     ax.set_xlabel("time [s]")
-    ax.set_ylabel("frequency [Hs]")
+    ax.set_ylabel("frequency [Hz]")
     plt.show()
 
     print(p)
@@ -44,7 +45,7 @@ def showSTFT(x, samp_rate=16000):
     ax = fig.add_subplot(1, 1, 1)  # create an axes object in the figure
     ax.imshow(p.T, aspect='auto', extent=ext, origin="lower", cmap="hot")
     ax.set_xlabel("time [s]")
-    ax.set_ylabel("frequency [Hs]")
+    ax.set_ylabel("frequency [Hz]")
     plt.show()
 
 
@@ -75,7 +76,8 @@ def readWaveAsFloat(wf):
     print(data.shape)
     return data
 
+samp_rate = wf.getframerate()
 data = readWaveAsFloat(wf)
 wf.close()
 
-showSTFT(data)
+showSTFT(data, samp_rate)
