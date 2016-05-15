@@ -10,8 +10,12 @@ Some  common Python libraries are also required
 ## Example
 The output is a 2-dim numpy array.
 So you can visualize the spectrogram of an audio file usint `matplotlib` as follows.
+
 ![spectrogram example](./doc/spectrogram_example.png)
-You can beutify this figure using some sophisticated functions of `matplotlib`
+
+You can beutify this figure using some sophisticated functions of `matplotlib`. For example,
+
+![Another spectrogram example](./doc/spectrogram_example2.png)
 
 ## python3
 
