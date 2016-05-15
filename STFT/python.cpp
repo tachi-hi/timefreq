@@ -20,17 +20,15 @@ stft_glue(const boost::numeric::ublas::vector<double> &x,
         const int length,
         const int shift)
 {
-    const int n_frame = x.size() / shift + 1;
+    const int n_frame = ((int)x.size() - length) / shift + 1;
     const int n_freq = length / 2 + 1;
-    std::vector<double> y;
-    for(size_t i = 0; i != x.size() + length; ++i){
-        if(i < x.size()){
-            y.push_back(x(i));
-        }else{
-            y.push_back(0.0);
-        }
-    }
+//    std::cerr << n_frame << " " << n_freq << " " << length << " " << shift << std::endl;
 
+    std::vector<double> y(x.size() + length * 10);
+    std::cerr << x.size() << " " << y.size() << std::endl;
+    for(size_t i = 0; i != y.size(); ++i)
+        y[i] = i < x.size() ? x[i] : 0.0;
+//    std::cerr << y.size() << std::endl;
     STFT stft(length, shift, n_frame);
     //allocation
     twoDimArray<double> abs_spec(n_frame, n_freq);
@@ -38,6 +36,7 @@ stft_glue(const boost::numeric::ublas::vector<double> &x,
 
     // exec stft
     stft.exec(&(y[0]), &abs_spec, &phase_spec);
+
     boost::numeric::ublas::matrix<double> abs_spec_boost(n_frame, n_freq);
     boost::numeric::ublas::matrix<double> phase_spec_boost(n_frame, n_freq);
 

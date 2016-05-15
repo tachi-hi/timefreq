@@ -11,7 +11,7 @@ void STFT::exec(
 //	input->read(length - shift);
 
 	for(int t = 0; t < n_frame; ++t){
-		shortTimeFFT(&(input[n_freq * t]), (*abs_spec_output)[t], (*phase_spec_output)[t]);
+		shortTimeFFT(&(input[this->shift * t]), (*abs_spec_output)[t], (*phase_spec_output)[t]);
 	}
 }
 
