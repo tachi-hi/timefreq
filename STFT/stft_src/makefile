@@ -4,7 +4,7 @@
 
 
 CXX = g++
-CXXFLAGS = -O3 -Wall # -pg -g
+CXXFLAGS = -O3 -Wall# -g # -pg
 #-fopenmp -std=c++0x
 LDLIBS = -lm -L. -lfftw3
 
