@@ -8,9 +8,6 @@
 class MyFFT{
 public:
   typedef enum{forward,backward} FLAG;
-  // default constructor : do nothing
-  MyFFT(void){};
-  MyFFT(const MyFFT& _){};
 
   MyFFT(FLAG flag, int size)
   {
